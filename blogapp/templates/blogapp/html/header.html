@@ -1,0 +1,52 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<h1>test page</h1> <p>{{ test }}</p>-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/create">Create Newspaper</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">All Newspaper</a>
+            </li>
+        </ul>
+    </div>
+    <span class="navbar-text" style="margin-right: 10%">
+        {% if user.is_authenticated %}
+            <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          {{ user.username }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="btn btn-outline-dark w-100" href="{% url 'logout' %}">log out</a>
+            <a class="dropdown-item" href="{% url 'password_reset' %}" style="color: black">change password</a>
+        </div>
+      </div>
+        {% else %}
+        <button class="btn btn-outline-success"><a href="{% url 'signup' %}">sign up</a></button>
+      <button class="btn btn-outline-light"><a href="{% url 'login' %}">login</a></button>
+        {% endif %}
+    </span>
+</nav>
+</body>
+</html>

@@ -7,7 +7,7 @@ CustomUser = get_user_model()
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = UserCreationForm.Meta.fields+('age',)
+        fields = UserCreationForm.Meta.fields+('age','email')
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
