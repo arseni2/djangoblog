@@ -17,7 +17,7 @@ import django_heroku
 BASE_DIR = Path(__file__).resolve().parent.parent
 django_heroku.settings(locals())
 ALLOWED_HOSTS = ['*']
-
+DEFAULT_CHARSET = 'UTF-8'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
